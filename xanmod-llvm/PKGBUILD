@@ -199,7 +199,7 @@ prepare() {
     fi
   fi
 
-  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig -j$(nproc --all)
 
   make -s kernelrelease > version
   echo "Prepared %s version %s" "$pkgbase" "$(<version)"
@@ -212,7 +212,7 @@ prepare() {
 
 build() {
   cd linux-${_major}
-  make LLVM=$_LLVM LLVM_IAS=$_LLVM all
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM all -j$(nproc --all)
 }
 
 _package() {
@@ -234,7 +234,7 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install -j$(nproc --all)
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
