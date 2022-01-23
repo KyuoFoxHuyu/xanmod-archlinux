@@ -29,7 +29,7 @@ fi
 
 # Compress modules with ZSTD (to save disk space)
 if [ -z ${_compress_modules+x} ]; then
-  _compress_modules=n
+  _compress_modules=y
 fi
 
 # Compile ONLY used modules to VASTLY reduce the number of modules built
