@@ -49,13 +49,13 @@ _makenconfig=y
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
-pkgbase=linux-xanmod
+pkgbase=linux-xanmod-kyuofox
 _major=5.16
 pkgver=${_major}.2
 _branch=5.x
 xanmod=1
 pkgrel=${xanmod}
-pkgdesc='Linux Xanmod Build By Clang'
+pkgdesc='Linux Xanmod Build By Kyuofox'
 _patches_url="https://gitlab.com/sirlucjan/kernel-patches/-/raw/master/${_major}"
 url="http://www.xanmod.org/"
 arch=(x86_64)
