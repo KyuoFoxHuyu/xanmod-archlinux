@@ -51,7 +51,7 @@ _makenconfig=y
 
 pkgbase=linux-xanmod-kyuofox
 _major=5.16
-pkgver=${_major}.10
+pkgver=${_major}.12
 _branch=5.x
 xanmod=1
 pkgrel=${xanmod}
@@ -84,8 +84,8 @@ validpgpkeys=(
 
 sha256sums=('027d7e8988bb69ac12ee92406c3be1fe13f990b1ca2249e226225cd1573308bb'
             'SKIP'
-            'aa43e27dff42041c8ccd07848c474f5de8873c0a8fd720831f57f10537e0e9cd'
-            'cc5b2dffc231aef1aa950ba0f1b8d078c0d24f190e33f7b217f10d5d4c705122'
+            'bb5a1df15a10a715807a44872ff4fe775337aae445285181f1d1ba0c78b1d7f2'
+            'd6d162990832239a4ed28452e761a9c8e1c79b422551ecada1dc311b8d9c89fa'
             '3943e79b966f4ae25cea0ef8536e789f0b07f8f3a5517ddf6338b94616ab160a'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee')
 
