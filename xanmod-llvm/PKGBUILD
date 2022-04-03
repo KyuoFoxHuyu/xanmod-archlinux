@@ -50,8 +50,8 @@ _makenconfig=y
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 
 pkgbase=linux-xanmod-kyuofox
-_major=5.16
-pkgver=${_major}.12
+_major=5.17
+pkgver=${_major}.1
 _branch=5.x
 xanmod=1
 pkgrel=${xanmod}
@@ -74,7 +74,6 @@ _srcname="linux-${pkgver}-xanmod${xanmod}"
 
 source=("https://cdn.kernel.org/pub/linux/kernel/v${_branch}/linux-${_major}.tar."{xz,sign}
         "https://github.com/xanmod/linux/releases/download/${pkgver}-xanmod${xanmod}/patch-${pkgver}-xanmod${xanmod}.xz"
-        "https://github.com/HougeLangley/customkernel/releases/download/v${_major}-patch/v1-cjktty-${_major}.patch"
         "0001-zstd.patch::${_patches_url}/zstd-patches/0001-zstd-patches.patch"
         choose-gcc-optimization.sh)
 validpgpkeys=(
@@ -82,11 +81,10 @@ validpgpkeys=(
     '647F28654894E3BD457199BE38DBBDC86092693E' # Greg Kroah-Hartman
 )
 
-sha256sums=('027d7e8988bb69ac12ee92406c3be1fe13f990b1ca2249e226225cd1573308bb'
+sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             'SKIP'
-            'bb5a1df15a10a715807a44872ff4fe775337aae445285181f1d1ba0c78b1d7f2'
-            'd6d162990832239a4ed28452e761a9c8e1c79b422551ecada1dc311b8d9c89fa'
-            '3943e79b966f4ae25cea0ef8536e789f0b07f8f3a5517ddf6338b94616ab160a'
+            'fe16b85a560b4a36f6855361fe10891d11614ad93d99b243dbcce9004979748d'
+            '98bcd7467b0ac9c6f2db4b38c590bf6db7f6dbd58e66e56459efcb31329cb213'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee')
 
 export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
