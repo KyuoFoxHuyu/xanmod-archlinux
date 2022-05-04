@@ -76,6 +76,7 @@ source=("https://cdn.kernel.org/pub/linux/kernel/v${_branch}/linux-${_major}.tar
         "https://github.com/xanmod/linux/releases/download/${pkgver}-xanmod${xanmod}/patch-${pkgver}-xanmod${xanmod}.xz"
         "0001-zstd.patch::${_patches_url}/zstd-patches/0001-zstd-patches.patch"
         "0002-btrfs.patch::${_patches_url}/btrfs-patches/0001-btrfs-patches.patch"
+        "0003-cacule.patch::${_patches_url}/cacule-patches/0001-cacULE-5.17.patch"
         choose-gcc-optimization.sh)
 validpgpkeys=(
     'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
@@ -87,6 +88,7 @@ sha256sums=('555fef61dddb591a83d62dd04e252792f9af4ba9ef14683f64840e46fa20b1b1'
             '76e571bdd4babd09d20a4dfbcd72185a99cb0063f5118217d1e0e456a491b5b5'
             '98bcd7467b0ac9c6f2db4b38c590bf6db7f6dbd58e66e56459efcb31329cb213'
             'd9833802d28179fab820d5f511c68d78e45942d8ad9912952d844d8c31816bd6'
+            '3811d55c47d1f101c3038709ff7a160066c21903532bb8b97140ff2b74427225'
             '1ac18cad2578df4a70f9346f7c6fccbb62f042a0ee0594817fdef9f2704904ee')
 
 export KBUILD_BUILD_HOST=${KBUILD_BUILD_HOST:-archlinux}
@@ -163,6 +165,9 @@ prepare() {
   scripts/config --enable CONFIG_MODULE_COMPRESS_ZSTD
   scripts/config --enable CONFIG_MODULE_COMPRESS_ZSTD_ULTRA
   scripts/config --set-val CONFIG_MODULE_COMPRESS_ZSTD_LEVEL 3
+
+  # Enable cucale scheduler
+  scripts/config --enable CONFIG_CACULE_SCHED
 
   # Let's user choose microarchitecture optimization in GCC
   sh ${srcdir}/choose-gcc-optimization.sh $_microarchitecture
